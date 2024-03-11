@@ -28,5 +28,6 @@ near-crypto = "0.20.0"
 
 tar = "0.4"
 flate2 = "1.0"
+futures = "0.3.30"
 
 
