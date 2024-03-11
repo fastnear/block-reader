@@ -106,6 +106,9 @@ async fn listen_blocks(mut stream: mpsc::Receiver<XBlock>, _config: ConsumerConf
     while let Some(xblock) = stream.recv().await {
         let block_height = xblock.block.header.height;
 
+        if block_height % 1000 == 0 {
+            tracing::log::info!(target: PROJECT_ID, "Processing block: {}", block_height);
+        }
         tracing::log::debug!(target: PROJECT_ID, "Processing block: {}", block_height);
     }
 }
